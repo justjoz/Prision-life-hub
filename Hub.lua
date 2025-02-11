@@ -22,7 +22,7 @@ local Window = Rayfield:CreateWindow({
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
 
-   KeySystem = false, -- Set this to true to use our key system
+   KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
       Title = "Untitled",
       Subtitle = "Key System",
@@ -30,7 +30,7 @@ local Window = Rayfield:CreateWindow({
       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Key = {"joz1234"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
 
@@ -77,3 +77,15 @@ character.HumanoidRootPart.CFrame = CFrame.new(0, 10, 0)
    end,
 })
 
+local Button = PlayerTab:CreateButton({
+   Name = "Teleport Button",
+   Callback = function()
+ game.Players.LocalPlayer
+       local character = player.Character or player.CharacterAdded:Wait()
+       if character and character:FindFirstChild("HumanoidRootPart") then
+character.HumanoidRootPart.CFrame = CFrame.new(457, 10, 100)
+       else
+           warn("No se encontró el HumanoidRootPart para el teletransporte.")
+       end
+   end,
+})
